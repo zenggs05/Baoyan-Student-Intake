@@ -259,3 +259,15 @@ KV 中所有时间都是 Unix 毫秒时间戳。
   - 停用学员后访问返回 403。
   - 采集页能导出 Word（文件可被 docx 解析，或 Word 能打开），打印预览页能渲染。
 - 每个页面在桌面（1366×900）和手机（390×844）各截一张图，存到 `test-artifacts/screens/`。
+
+## 9. 飞鸟研习社与教程子站（2026-11-13 新增）
+
+- 主站 `/research/`（src/research/）：研习社总览页，纯静态。内容包括教程专栏入口、筹备中的专栏，以及到《DFT 一周入门笔记》的入口。
+- 教程子站 `learn.feiniaofly.cn`（src/worker/learn.js）：同一个 Worker 根据请求的 hostname 分流。
+  - `/<slug>/…` 实时转发到 GitHub Pages：`SITES = { dft: '/DFT-Tutorials/' }`。上游缓存 300 秒，GitHub 推送并完成 Pages 部署后，约 5 分钟内自动同步，不需要重新部署本站。
+  - HTML 用 HTMLRewriter 把绝对地址改写到本站，并在页面左下角插入「← 飞鸟研习社」返回按钮。
+  - 去掉 Google Fonts，它在大陆会被拦截，又在 head 里阻塞渲染。MathJax 改走 `/_cdn/jsdelivr/npm/mathjax@3/…` 中转，有白名单，不是开放代理。
+  - `learn.` 根路径 302 跳转到主站的 `/research/`。
+- 隔离：教程站会加载第三方脚本，所以必须放在独立子域名下。主站的 `bys` Cookie 是 host-only，不会发送到 learn 子域名。
+- `run_worker_first` 只排除主站自己的打包目录。不能写 `!/*.js` 这类全局规则，否则子站的 `.css/.js/.json` 请求会被静态资源层直接返回 404。
+- 新增专栏：在 `SITES` 里加一行（slug → GitHub Pages 路径），在 `src/research/index.html` 里加一张卡片，然后部署。

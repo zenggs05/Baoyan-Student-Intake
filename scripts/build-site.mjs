@@ -15,7 +15,7 @@ const argVal = (name) => { const i = process.argv.indexOf(name); return i > 0 ? 
 // --out <dir>   build somewhere other than dist/ (use this for isolated testing so parallel builds don't clobber dist/)
 // --only a,b    build only these apps (e.g. --only intake)
 const DIST = argVal('--out') ? join(ROOT, argVal('--out')) : join(ROOT, 'dist');
-const ALL_ROUTES = { site: '', intake: 'intake', library: 'library', login: 'login', admin: 'admin' };
+const ALL_ROUTES = { site: '', intake: 'intake', library: 'library', research: 'research', login: 'login', admin: 'admin' };
 const only = argVal('--only')?.split(',');
 const ROUTES = Object.fromEntries(Object.entries(ALL_ROUTES).filter(([k]) => !only || only.includes(k)));
 const watch = process.argv.includes('--watch');

@@ -8,6 +8,8 @@ preview_urls = false
 routes = [
   { pattern = "feiniaofly.cn", custom_domain = true },
   { pattern = "www.feiniaofly.cn", custom_domain = true },
+  # 飞鸟研习社教程子站：实时转发 GitHub Pages（src/worker/learn.js），独立子域名与主站隔离
+  { pattern = "learn.feiniaofly.cn", custom_domain = true },
 ]
 
 [assets]
@@ -18,17 +20,22 @@ binding = "ASSETS"
 # and are served directly as static assets (no Worker invocation, no cost).
 run_worker_first = [
   "/*",
-  "!/*.js",
-  "!/*.css",
-  "!/*.json",
-  "!/*.png",
-  "!/*.jpg",
-  "!/*.svg",
-  "!/*.ico",
-  "!/*.webp",
-  "!/*.woff2",
-  "!/*.txt",
+  # 主站自己的打包文件与公开数据直接走静态资源（不调用 Worker）。
+  # 只排除这些具体目录，不用 "!/*.js" 这类全局规则：否则教程子站 learn.feiniaofly.cn
+  # 的 /dft/**.css、/dft/**.js、/_cdn/** 也会被挡在 Worker 外面。
+  "!/_chunks/*",
   "!/data/*",
+  "!/main.js",
+  "!/main.css",
+  "!/intake/*.js",
+  "!/intake/*.css",
+  "!/library/*.js",
+  "!/library/*.css",
+  "!/login/*.js",
+  "!/login/*.css",
+  "!/admin/*.js",
+  "!/admin/*.css",
+  "!/research/*.css",
 ]
 
 [[kv_namespaces]]
