@@ -1,0 +1,41 @@
+/* Long-form typography for trusted HTML fragments (sale pages, previews, service pages, documents). */
+.prose{--measure:44em;font-size:16.5px;line-height:1.9;color:#24364f;overflow-wrap:break-word;word-break:normal;text-align:justify;text-justify:inter-ideograph}
+.prose>:first-child{margin-top:0}
+.prose p,.prose ul,.prose ol,.prose blockquote,.prose pre,.prose .table-wrap,.prose aside,.prose dl,.prose figure{margin:0 0 1em}
+.prose h1{font-size:1.6em;line-height:1.4;color:var(--navy);margin:0 0 .8em;letter-spacing:.5px;text-align:left}
+.prose h2{font-size:1.3em;line-height:1.5;color:var(--navy);margin:2.1em 0 .8em;padding-bottom:.4em;border-bottom:1px solid var(--border);text-align:left;scroll-margin-top:84px}
+.prose h3{font-size:1.12em;line-height:1.55;color:var(--navy);margin:1.7em 0 .6em;text-align:left;scroll-margin-top:84px}
+.prose h3::before{content:"";display:inline-block;width:4px;height:.95em;border-radius:2px;background:#7d9fd1;margin-right:.5em;vertical-align:-.1em}
+.prose h4,.prose h5,.prose h6{font-size:1em;color:var(--navy);margin:1.4em 0 .4em;text-align:left}
+.prose strong{color:var(--navy);font-weight:650}
+.prose ul,.prose ol{padding-left:1.5em}
+.prose li{margin:.25em 0}
+.prose li>ul,.prose li>ol{margin:.25em 0 .25em}
+.prose li::marker{color:#7d8da6}
+.prose a{color:var(--blue);text-underline-offset:2px;word-break:break-all}
+.prose .plain-link{color:inherit}
+.prose blockquote{padding:.7em 1.1em;border-left:3px solid #b5c8e6;background:#f5f8fd;color:#46587a;border-radius:0 10px 10px 0}
+.prose blockquote>:last-child{margin-bottom:0}
+.prose hr{border:0;border-top:1px solid var(--border);margin:2.2em 0}
+.prose code{font-family:ui-monospace,"Cascadia Mono",Consolas,"SFMono-Regular",Menlo,monospace;font-size:.86em;background:#eef2f8;color:#1f3a66;padding:.12em .38em;border-radius:5px;word-break:break-word}
+.prose pre{background:#13213a;color:#e2e8f2;padding:14px 16px;border-radius:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:13.5px;line-height:1.7;text-align:left;tab-size:4}
+.prose pre code{background:none;padding:0;color:inherit;font-size:inherit;word-break:normal;white-space:pre}
+.prose .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:10px;background:#fff}
+.prose table{border-collapse:collapse;min-width:100%;font-size:14px;line-height:1.65;text-align:left}
+.prose th,.prose td{border-bottom:1px solid var(--border);padding:9px 12px;vertical-align:top;min-width:5.5em}
+.prose th+th,.prose td+td{border-left:1px solid #eef1f6}
+.prose tr:last-child td{border-bottom:0}
+.prose thead th{background:var(--label-bg);color:#3d4e67;font-weight:600;white-space:nowrap}
+.prose tbody tr:nth-child(even) td{background:#fbfcfe}
+.prose img{max-width:100%;height:auto;border-radius:8px}
+.prose .todo{font-size:.82em;vertical-align:.08em;cursor:help;white-space:nowrap}
+.prose .disclaimer{margin:2em 0 0;padding:14px 16px;border-radius:12px;background:var(--label-bg);color:var(--muted);font-size:13px;line-height:1.8;text-align:left}
+.prose .disclaimer>:last-child{margin-bottom:0}
+.prose .disclaimer p{margin:0}
+@media (max-width:640px){
+  .prose{font-size:16px;line-height:1.85;text-align:left}
+  .prose h1{font-size:1.45em}
+  .prose h2{font-size:1.22em;margin-top:1.8em}
+  .prose pre{font-size:12.5px;border-radius:10px;margin-left:-2px;margin-right:-2px}
+  .prose table{font-size:13.5px}
+}

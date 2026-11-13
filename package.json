@@ -1,0 +1,27 @@
+{
+  "name": "baoyan-site",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "保研全程陪跑：学员信息采集 + 资料库（密钥解锁 / 陪跑学员只读账号）",
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "content": "node scripts/build-content.mjs",
+    "content:pdf": "node scripts/build-pdf.mjs",
+    "content:upload:local": "node scripts/upload-content.mjs --local",
+    "content:upload": "node scripts/upload-content.mjs --remote",
+    "dev": "wrangler dev --port 8787",
+    "deploy": "npm run build && wrangler deploy",
+    "test": "node --test \"tests/*.test.mjs\""
+  },
+  "dependencies": {
+    "docx": "^9.15.3",
+    "markdown-it": "^14.3.3",
+    "pdf-lib": "^1.17.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "puppeteer-core": "^23.11.1",
+    "wrangler": "^4.161.0"
+  }
+}

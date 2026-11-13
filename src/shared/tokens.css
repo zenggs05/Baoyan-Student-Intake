@@ -1,0 +1,35 @@
+/* Shared design tokens & base components — keep consistent with legacy/app.css */
+:root{
+  --navy:#172946; --blue:#315eaa; --blue-2:#4672bf; --blue-soft:#eaf1fb; --muted:#718097; --text:#172946;
+  --border:#e4e9f1; --bg:#f5f7fb; --card:#ffffff; --label-bg:#f2f5fa;
+  --amber:#a47b40; --amber-bg:#fff4db; --green:#3f7a5a; --green-bg:#e8f3ec; --red:#a24a48; --red-bg:#fbecea;
+  --radius:14px; --radius-sm:10px; --shadow:0 1px 2px rgba(23,41,70,.05),0 6px 24px rgba(23,41,70,.06);
+  --font:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Segoe UI",system-ui,sans-serif;
+  font-family:var(--font); color:var(--text); background:var(--bg); font-synthesis:none;
+}
+*{box-sizing:border-box} body{margin:0;font-size:15px;line-height:1.7;-webkit-text-size-adjust:100%}
+h1,h2,h3,h4,p{margin:0} a{color:var(--blue)} img{max-width:100%}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #93b7ed;outline-offset:3px}
+.container{max-width:1120px;margin:0 auto;padding:0 20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 18px;border-radius:10px;border:1px solid #d9e1ec;background:#fff;color:var(--navy);font-weight:600;cursor:pointer;text-decoration:none;transition:filter .15s,background .15s}
+.btn:hover:not(:disabled){filter:brightness(.97)} .btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.primary{background:var(--navy);border-color:var(--navy);color:#fff}
+.btn.blue{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--blue)}
+.btn.small{min-height:34px;padding:0 12px;font-size:13px}
+.input{width:100%;min-height:44px;padding:10px 12px;border:1px solid #d9e1ec;border-radius:10px;background:#fff}
+.input:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 3px rgba(49,94,170,.15)}
+.muted{color:var(--muted)} .small{font-size:13px}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600;background:var(--blue-soft);color:var(--blue)}
+.badge.green{background:var(--green-bg);color:var(--green)} .badge.amber{background:var(--amber-bg);color:var(--amber)} .badge.red{background:var(--red-bg);color:var(--red)}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:1000;max-width:min(92vw,520px);padding:12px 18px;border-radius:12px;background:var(--navy);color:#fff;box-shadow:var(--shadow);font-size:14px}
+.toast.error{background:var(--red)}
+.site-header{background:#fff;border-bottom:1px solid var(--border)}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy)} .brand strong{font-size:16px;letter-spacing:.5px}
+.brand-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:var(--navy);color:#fff}
+.todo{display:inline-block;padding:0 6px;border-radius:6px;background:var(--amber-bg);color:var(--amber);font-size:.85em}
+.disclaimer{margin-top:28px;padding:14px 16px;border-radius:12px;background:var(--label-bg);color:var(--muted);font-size:13px}
+@media (max-width:640px){body{font-size:15px}.container{padding:0 14px}.site-header .container{height:60px}}

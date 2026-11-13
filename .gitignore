@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.content/
+.wrangler/
+.dev.vars
+test-artifacts/
+reference/
+*.log
+legacy/
